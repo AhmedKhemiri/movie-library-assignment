@@ -57,8 +57,9 @@
         <label for="director">Director</label>
         <input type="text" class="form-control" id="director"  [(ngModel)]="director" name="director"  formControlName="director">
         <button class="btn btn-success" (click)="addDirector()">Add</button>
+        <button class="btn btn-danger" (click)="clearDirector()">Clear</button>
         {{movie.director}}
-        <div *ngIf="movieForm.controls['director'].hasError('required')"  class="alert alert-danger">
+        <div *ngIf="movie.director === ''"  class="alert alert-danger">
           Director is required.
         </div>
       </div>
@@ -94,6 +95,6 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" [disabled]="!movieForm.valid" >Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>
