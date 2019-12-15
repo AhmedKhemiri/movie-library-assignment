@@ -35,8 +35,10 @@ public class MovieLibraryController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Integer create(@RequestBody Movie movie) throws IOException{
-        return this.movieLibraryDao.create(movie);
+    public ResponseEntity<Movie> create(@RequestBody Movie movie) throws IOException{
+        Integer id =  this.movieLibraryDao.create(movie);
+        movie.setId(id);
+        return ResponseEntity.ok().body(movie);
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
