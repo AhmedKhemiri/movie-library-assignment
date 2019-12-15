@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="home" class="nav-link" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="movies" class="nav-link" routerLinkActive="active">List of movies</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="author" class="nav-link" routerLinkActive="active">Authors</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="container">
+    <div class="card" style="margin-top: 5%">
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Director List</h2>
+  </div>
+  <div class="panel-body">
+    <table id="authorsTable" class="table table-striped table-bordered table-sm">
+      <thead>
+      <tr>
+        <th>Directors</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let director of directors">
+        <td placement="right" ngbTooltip="{{getDirectorMovie(director.movies)}}">{{director.name}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

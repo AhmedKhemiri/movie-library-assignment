@@ -1,0 +1,99 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Movie List</h2>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div class="form-group">
+        <label for="searchText">Search</label>
+        <input type="text" class="form-control" id="searchText" [(ngModel)]="searchText" (ngModelChange)="searchMovie()" name="searchText" placeholder="Search a movie by title, director, release date, type">
+      </div>
+    </div>
+    <table id="moviesTable" class="table table-striped table-bordered table-sm">
+      <thead>
+      <tr>
+        <th (click)="sortMovie('title')" >Title</th>
+        <th (click)="sortMovie('director')">Director</th>
+        <th (click)="sortMovie('releaseDate')" >Release Date</th>
+        <th (click)="sortMovie('type')" >Type</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let movie of moviesToDisplay">
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.releaseDate}}</td>
+        <td>{{movie.type}}</td>
+        <button  (click)="open(content, movie.id)" class="btn btn-info">Update</button>
+        <button (click)="deleteMovie(movie.id)" class="btn btn-danger">Delete</button>
+      </tr>
+      </tbody>
+    </table>
+    <div style="float: right">
+      <button class="btn btn-primary btn-lg" (click)="open(content, 0)">Add</button>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{action}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="movieForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="movie.title" name="title" formControlName="title">
+        <div *ngIf="movieForm.controls['title'].hasError('required')"  class="alert alert-danger">
+            Title is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="director">Director</label>
+        <input type="text" class="form-control" id="director"  [(ngModel)]="director" name="director"  formControlName="director">
+        <button class="btn btn-success" (click)="addDirector()">Add</button>
+        {{movie.director}}
+        <div *ngIf="movieForm.controls['director'].hasError('required')"  class="alert alert-danger">
+          Director is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select (change)="setType($event.target.value)" class="form-control" id="type"  [(ngModel)]="movie.type" name="type"  formControlName="type">
+          <option></option>
+          <option *ngFor="let name of options"
+                  [value]="name">{{name}}</option>
+        </select>
+        <div *ngIf="movieForm.controls['type'].hasError('required')"  class="alert alert-danger">
+          Type is required.
+        </div>
+
+
+
+      </div>
+      <div class="form-group">
+        <label for="releaseDate">Release Date</label>
+        <div class="input-group">
+          <input id="releaseDate" class="form-control" name="releaseDate"  formControlName="releaseDate" ngbDatepicker
+                 #dp="ngbDatepicker" required [(ngModel)]="releaseDate">
+
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="movieForm.controls['releaseDate'].hasError('required')"  class="alert alert-danger">
+        Release Date is required.
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" [disabled]="!movieForm.valid" >Save</button>
+  </div>
+</ng-template>
