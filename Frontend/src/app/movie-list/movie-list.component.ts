@@ -160,5 +160,10 @@ export class MovieListComponent implements OnInit {
       this.movie.director += ', ';
     }
     this.movie.director += this.director;
+    this.director = '';
+  }
+
+  clearDirector() {
+    this.movie.director = '';
   }
 }
