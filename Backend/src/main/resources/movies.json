@@ -1,0 +1,65 @@
+[
+  {
+    "id":"1",
+    "title":"Ocean's 8",
+    "director":"Gary Ross",
+    "releaseDate":"13/06/2018",
+    "type":"action"
+  },
+  {
+    "id":"2",
+    "title":"Solo: A Star Wars Story",
+    "director":"Ron Howard",
+    "releaseDate":"23/05/2018",
+    "type":"Sci-Fi"
+  },
+  {
+    "id":"3",
+    "title":"Deadpool 2",
+    "director":"David Leitch",
+    "releaseDate":"16/05/2018",
+    "type":"Comedy"
+  },
+  {
+    "id":"4",
+    "title":"Avengers: Infinite War",
+    "director":"Anthony Russo, Joe Russo",
+    "releaseDate":"25/04/2018",
+    "type":"action"
+  },
+  {
+    "id":"5",
+    "title":"The First Purge",
+    "director":"Gerard McMurray",
+    "releaseDate":"04/07/2018",
+    "type":"Horror"
+  },
+  {
+    "id":"6",
+    "title":"Mission: Impossible - Fallout",
+    "director":"Christopher McQuarrie",
+    "releaseDate":"01/08/2018",
+    "type":"Thriller"
+  },
+  {
+    "id":"7",
+    "title":"The Mummy",
+    "director":"Christopher McQuarrie",
+    "releaseDate":"14/06/2017",
+    "type":"Fantasy"
+  },
+  {
+    "id":"8",
+    "title":"Hunger Games",
+    "director":"Gary Ross",
+    "releaseDate":"21/03/2012",
+    "type":"Thriller"
+  },
+  {
+    "id":"9",
+    "title":"John Wick",
+    "director":"David Leitch",
+    "releaseDate":"29/10/2014",
+    "type":"Thriller"
+  }
+]
