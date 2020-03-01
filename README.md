@@ -1,4 +1,4 @@
-# MovieLibraryAssignment
+# Movie Library Assignment
 <p>Welcome to Movie Library application</p>
     <p>This simple application will allow users to </p>
     <ul>
